@@ -32,7 +32,7 @@ describe('moveTo', () => {
 
         const elem = await browser.$('#elem')
         request.setMockResponse([undefined, { scrollX: 19, scrollY: 0 }])
-        await elem.moveTo(5, 10)
+        await elem.moveTo({ xOffset: 5, yOffset: 10 })
         expect(request.mock.calls[4][0].body.actions[0].actions[0])
             .toEqual({ type: 'pointerMove', duration: 0, x: 1, y: 30 })
     })
@@ -47,7 +47,7 @@ describe('moveTo', () => {
 
         const elem = await browser.$('#elem')
         request.setMockResponse([{}, { x: 5, y: 10, height: 33, width: 44 }, { scrollX: 0, scrollY: 0 }])
-        await elem.moveTo(5, 10)
+        await elem.moveTo({ xOffset: 5, yOffset: 10 })
         expect(request.mock.calls[5][0].body.actions[0].actions[0])
             .toEqual({ type: 'pointerMove', duration: 0, x: 10, y: 20 })
     })
@@ -62,7 +62,8 @@ describe('moveTo', () => {
 
         const elem = await browser.$('#elem')
         request.setMockResponse([{}, {}])
-        await expect(elem.moveTo(5, 10)).rejects.toThrow('Failed to receive element rects via execute command')
+        await expect(elem.moveTo({ xOffset: 5, yOffset: 10 }))
+            .rejects.toThrow('Failed to receive element rects via execute command')
     })
 
     it('should do a moveTo without params (no-w3c)', async () => {
@@ -78,7 +79,7 @@ describe('moveTo', () => {
         expect(request.mock.calls[2][0].uri.path).toContain('/foobar-123/moveto')
         expect(request.mock.calls[2][0].body).toEqual({ element: 'some-elem-123' })
 
-        await elem.moveTo(5, 10)
+        await elem.moveTo({ xOffset: 5, yOffset: 10 })
         expect(request.mock.calls[3][0].uri.path).toContain('/foobar-123/moveto')
         expect(request.mock.calls[3][0].body).toEqual({ element: 'some-elem-123', xoffset: 5, yoffset: 10 })
     })
