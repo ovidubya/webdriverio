@@ -11,6 +11,10 @@ const changeType = (text) => {
     case 'Function':
     case 'RegExp':
     case 'WaitForOptions':
+    case 'ReactSelectorOptions':
+    case 'MoveToOptions':
+    case 'DragAndDropOptions':
+    case 'NewWindowOptions':
     case 'Element':
     case 'ElementArray': {
         break
