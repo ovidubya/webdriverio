@@ -17,7 +17,7 @@ describe('isSelected test', () => {
 
     it('should allow to check if element is selected', async () => {
         await elem.isSelected()
-        expect(got.mock.calls[2][1].uri.path).toBe('/wd/hub/session/foobar-123/element/some-elem-123/selected')
+        expect(got.mock.calls[2][1].uri.pathname).toBe('/wd/hub/session/foobar-123/element/some-elem-123/selected')
     })
 
     afterEach(() => {

@@ -17,7 +17,7 @@ describe('clearValue test', () => {
 
     it('should allow to clear an input element', async () => {
         await elem.clearValue()
-        expect(got.mock.calls[2][1].uri.path).toBe('/wd/hub/session/foobar-123/element/some-elem-123/clear')
+        expect(got.mock.calls[2][1].uri.pathname).toBe('/wd/hub/session/foobar-123/element/some-elem-123/clear')
     })
 
     afterEach(() => {

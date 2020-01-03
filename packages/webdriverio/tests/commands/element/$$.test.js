@@ -14,11 +14,11 @@ describe('element', () => {
         const elem = await browser.$('#foo')
         const elems = await elem.$$('#subfoo')
         expect(got.mock.calls[1][1].method).toBe('POST')
-        expect(got.mock.calls[1][1].uri.path).toBe('/wd/hub/session/foobar-123/element')
+        expect(got.mock.calls[1][1].uri.pathname).toBe('/wd/hub/session/foobar-123/element')
         expect(got.mock.calls[1][1].json).toEqual({ using: 'css selector', value: '#foo' })
         expect(elem.elementId).toBe('some-elem-123')
         expect(got.mock.calls[2][1].method).toBe('POST')
-        expect(got.mock.calls[2][1].uri.path).toBe('/wd/hub/session/foobar-123/element/some-elem-123/elements')
+        expect(got.mock.calls[2][1].uri.pathname).toBe('/wd/hub/session/foobar-123/element/some-elem-123/elements')
         expect(got.mock.calls[2][1].json).toEqual({ using: 'css selector', value: '#subfoo' })
         expect(elems).toHaveLength(3)
 

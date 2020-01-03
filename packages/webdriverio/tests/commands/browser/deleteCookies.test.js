@@ -17,21 +17,21 @@ describe('deleteCookies', () => {
         await browser.deleteCookies()
 
         expect(got.mock.calls[1][1].method).toBe('DELETE')
-        expect(got.mock.calls[1][1].uri.path).toBe('/wd/hub/session/foobar-123/cookie')
+        expect(got.mock.calls[1][1].uri.pathname).toBe('/wd/hub/session/foobar-123/cookie')
     })
 
     it('should support passing a string', async () => {
         await browser.deleteCookies('cookie1')
 
         expect(got.mock.calls[0][1].method).toBe('DELETE')
-        expect(got.mock.calls[0][1].uri.path).toBe('/wd/hub/session/foobar-123/cookie/cookie1')
+        expect(got.mock.calls[0][1].uri.pathname).toBe('/wd/hub/session/foobar-123/cookie/cookie1')
     })
 
     it('should support passing a array with a string', async () => {
         await browser.deleteCookies(['cookie1'])
 
         expect(got.mock.calls[0][1].method).toBe('DELETE')
-        expect(got.mock.calls[0][1].uri.path).toBe('/wd/hub/session/foobar-123/cookie/cookie1')
+        expect(got.mock.calls[0][1].uri.pathname).toBe('/wd/hub/session/foobar-123/cookie/cookie1')
     })
 
     it('should delete cookies that match by name', async () => {
@@ -40,7 +40,7 @@ describe('deleteCookies', () => {
 
         cookieNames.forEach((name, i) => {
             expect(got.mock.calls[i][1].method).toBe('DELETE')
-            expect(got.mock.calls[i][1].uri.path).toBe(`/wd/hub/session/foobar-123/cookie/${name}`)
+            expect(got.mock.calls[i][1].uri.pathname).toBe(`/wd/hub/session/foobar-123/cookie/${name}`)
         })
     })
 

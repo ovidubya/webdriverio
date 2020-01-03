@@ -11,7 +11,7 @@ describe('isEnabled test', () => {
         })
 
         await browser.execute(() => 'foobar', 1, 2, 3)
-        expect(got.mock.calls[1][1].uri.path).toBe('/wd/hub/session/foobar-123/execute/sync')
+        expect(got.mock.calls[1][1].uri.pathname).toBe('/wd/hub/session/foobar-123/execute/sync')
         expect(got.mock.calls[1][1].json.script).toBe('return (() => \'foobar\').apply(null, arguments)')
         expect(got.mock.calls[1][1].json.args).toEqual([1, 2, 3])
     })

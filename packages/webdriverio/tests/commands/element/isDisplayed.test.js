@@ -23,7 +23,7 @@ describe('isDisplayed test', () => {
     it('should allow to check if element is displayed', async () => {
         expect(await elem.isDisplayed()).toBe(true)
         expect(got).toBeCalledTimes(1)
-        expect(got.mock.calls[0][1].uri.path).toBe('/wd/hub/session/foobar-123/element/some-elem-123/displayed')
+        expect(got.mock.calls[0][1].uri.pathname).toBe('/wd/hub/session/foobar-123/element/some-elem-123/displayed')
     })
 
     it('should allow to check if element is displayed in mobile mode without browserName', async () => {
@@ -38,15 +38,15 @@ describe('isDisplayed test', () => {
         got.mockClear()
         expect(await elem.isDisplayed()).toBe(true)
         expect(got).toBeCalledTimes(1)
-        expect(got.mock.calls[0][1].uri.path).toBe('/wd/hub/session/foobar-123/element/some-elem-123/displayed')
+        expect(got.mock.calls[0][1].uri.pathname).toBe('/wd/hub/session/foobar-123/element/some-elem-123/displayed')
     })
 
     it('should refetch element if non existing', async () => {
         delete elem.elementId
         expect(await elem.isDisplayed()).toBe(true)
         expect(got).toBeCalledTimes(2)
-        expect(got.mock.calls[0][1].uri.path).toBe('/wd/hub/session/foobar-123/element')
-        expect(got.mock.calls[1][1].uri.path).toBe('/wd/hub/session/foobar-123/element/some-elem-123/displayed')
+        expect(got.mock.calls[0][1].uri.pathname).toBe('/wd/hub/session/foobar-123/element')
+        expect(got.mock.calls[1][1].uri.pathname).toBe('/wd/hub/session/foobar-123/element/some-elem-123/displayed')
     })
 
     it('should refect React element if non existing', async () => {
@@ -95,7 +95,7 @@ describe('isDisplayed test', () => {
 
             expect(await elem.isDisplayed()).toBe(true)
             expect(got).toBeCalledTimes(1)
-            expect(got.mock.calls[0][1].uri.path).toBe('/wd/hub/session/foobar-123/execute/sync')
+            expect(got.mock.calls[0][1].uri.pathname).toBe('/wd/hub/session/foobar-123/execute/sync')
             expect(got.mock.calls[0][1].json.args[0]).toEqual({
                 'element-6066-11e4-a52e-4f735466cecf': 'some-elem-123',
                 ELEMENT: 'some-elem-123'
@@ -114,7 +114,7 @@ describe('isDisplayed test', () => {
 
             expect(await elem.isDisplayed()).toBe(true)
             expect(got).toBeCalledTimes(1)
-            expect(got.mock.calls[0][1].uri.path).toBe('/wd/hub/session/foobar-123/execute/sync')
+            expect(got.mock.calls[0][1].uri.pathname).toBe('/wd/hub/session/foobar-123/execute/sync')
             expect(got.mock.calls[0][1].json.args[0]).toEqual({
                 'element-6066-11e4-a52e-4f735466cecf': 'some-elem-123',
                 ELEMENT: 'some-elem-123'
@@ -133,7 +133,7 @@ describe('isDisplayed test', () => {
 
             expect(await elem.isDisplayed()).toBe(true)
             expect(got).toBeCalledTimes(1)
-            expect(got.mock.calls[0][1].uri.path).toBe('/wd/hub/session/foobar-123/execute/sync')
+            expect(got.mock.calls[0][1].uri.pathname).toBe('/wd/hub/session/foobar-123/execute/sync')
             expect(got.mock.calls[0][1].json.args[0]).toEqual({
                 'element-6066-11e4-a52e-4f735466cecf': 'some-elem-123',
                 ELEMENT: 'some-elem-123'
@@ -154,7 +154,7 @@ describe('isDisplayed test', () => {
 
             expect(await elem.isDisplayed()).toBe(true)
             expect(got).toBeCalledTimes(1)
-            expect(got.mock.calls[0][1].uri.path).toBe('/wd/hub/session/foobar-123/execute/sync')
+            expect(got.mock.calls[0][1].uri.pathname).toBe('/wd/hub/session/foobar-123/execute/sync')
             expect(got.mock.calls[0][1].json.args[0]).toEqual({
                 'element-6066-11e4-a52e-4f735466cecf': 'some-elem-123',
                 ELEMENT: 'some-elem-123'

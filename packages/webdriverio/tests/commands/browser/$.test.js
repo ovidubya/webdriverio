@@ -13,7 +13,7 @@ describe('element', () => {
 
         const elem = await browser.$('#foo')
         expect(got.mock.calls[1][1].method).toBe('POST')
-        expect(got.mock.calls[1][1].uri.path).toBe('/wd/hub/session/foobar-123/element')
+        expect(got.mock.calls[1][1].uri.pathname).toBe('/wd/hub/session/foobar-123/element')
         expect(got.mock.calls[1][1].json).toEqual({ using: 'css selector', value: '#foo' })
         expect(elem.elementId).toBe('some-elem-123')
         expect(elem[ELEMENT_KEY]).toBe('some-elem-123')

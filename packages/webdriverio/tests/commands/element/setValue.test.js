@@ -21,8 +21,8 @@ describe('setValue', () => {
         const elem = await browser.$('#foo')
 
         await elem.setValue('foobar')
-        expect(got.mock.calls[2][1].uri.path).toBe('/wd/hub/session/foobar-123/element/some-elem-123/clear')
-        expect(got.mock.calls[3][1].uri.path).toBe('/wd/hub/session/foobar-123/element/some-elem-123/value')
+        expect(got.mock.calls[2][1].uri.pathname).toBe('/wd/hub/session/foobar-123/element/some-elem-123/clear')
+        expect(got.mock.calls[3][1].uri.pathname).toBe('/wd/hub/session/foobar-123/element/some-elem-123/value')
         expect(got.mock.calls[3][1].json.text).toEqual('foobar')
     })
 

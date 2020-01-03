@@ -14,7 +14,7 @@ describe('getSize test', () => {
         const elem = await browser.$('#foo')
         const size = await elem.getSize()
 
-        expect(got.mock.calls[2][1].uri.path).toBe('/wd/hub/session/foobar-123/element/some-elem-123/rect')
+        expect(got.mock.calls[2][1].uri.pathname).toBe('/wd/hub/session/foobar-123/element/some-elem-123/rect')
         expect(size.width).toBe(50)
         expect(size.height).toBe(30)
     })
@@ -30,7 +30,7 @@ describe('getSize test', () => {
         const elem = await browser.$('#foo')
         const size = await elem.getSize()
 
-        expect(got.mock.calls[2][1].uri.path).toBe('/wd/hub/session/foobar-123/element/some-elem-123/size')
+        expect(got.mock.calls[2][1].uri.pathname).toBe('/wd/hub/session/foobar-123/element/some-elem-123/size')
         expect(size.width).toBe(50)
         expect(size.height).toBe(30)
     })
